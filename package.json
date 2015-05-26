@@ -1,0 +1,14 @@
+{
+  "name": "spm-doc-server",
+  "dependencies": {
+    "express": "~4.12.4",
+    "serve-spm": "~1.0.0"
+  },
+  "devDependencies": {
+    "pm2": "*"
+  },
+  "scripts": {
+    "start": "pm2 start app.js --name spmjs-docs",
+    "stop": "pm2 stop spmjs-docs"
+  }
+}
