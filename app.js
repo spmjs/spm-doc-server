@@ -9,7 +9,7 @@ global.CONFIG = {
 };
 
 var app = express();
-app.set('port', 3001);
+app.set('port', 3002);
 
 app.get('/:name/:version/*', require('./docs'));
 app.get('/*', express.static(join(CONFIG.wwwroot, 'docs')));
