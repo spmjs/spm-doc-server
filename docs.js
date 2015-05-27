@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
 
   serveSpm(root, {
     paths: [
-      ['/docs/' + req.params.name + '/' + req.params.version, '']
+      ['/' + req.params.name + '/' + req.params.version, '']
     ],
     cache: true
   })(req, res, next);
