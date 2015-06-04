@@ -12,7 +12,16 @@ global.CONFIG = {
 var app = express();
 app.set('port', 3002);
 
+app.get('/:name/examples/*', function(req, res, next) {
+  if (fs.existsSync(join(CONFIG.wwwroot, 'docs', req.params.name))) {
+    res.redirect('/' + req.params.name + '/latest' + '/examples/');
+  } else {
+    next();
+  }
+});
+
 app.get('/:name/:version/*', require('./docs'));
+
 app.get('/:name', function(req, res, next) {
   if (fs.existsSync(join(CONFIG.wwwroot, 'docs', req.params.name))) {
     res.redirect('/' + req.params.name + '/latest');
@@ -20,6 +29,7 @@ app.get('/:name', function(req, res, next) {
     next();
   }
 });
+
 app.get('/*', express.static(join(CONFIG.wwwroot, 'docs')));
 
 http.createServer(app).listen(app.get('port'), function() {
