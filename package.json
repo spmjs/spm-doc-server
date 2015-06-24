@@ -2,7 +2,7 @@
   "name": "spm-doc-server",
   "dependencies": {
     "express": "~4.12.4",
-    "serve-spm": "~1.0.0"
+    "serve-spm": "~0.15.0"
   },
   "devDependencies": {
     "pm2": "*"
